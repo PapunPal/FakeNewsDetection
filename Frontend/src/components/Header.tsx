@@ -1,4 +1,6 @@
-import  { useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -36,13 +38,13 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden sm:flex space-x-4 text-base">
-          <a href="/" className="relative px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 group">
+          <Link to="/" className="relative px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 group">
             Home
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 -z-10 pointer-events-none"></div>
-          </a>
-          <a href="/home/main" className="relative px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full border border-cyan-300/50 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40 group font-semibold">
+          </Link>
+          <Link to="/home/main" className="relative px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full border border-cyan-300/50 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40 group font-semibold">
             Try Now
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile menu button */}
@@ -66,23 +68,22 @@ export default function Header() {
         ${isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
       >
         <nav className="container mx-auto p-4 flex flex-col space-y-3">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="px-4 py-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/25 group text-center"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Home
-          </a>
-          <a
-            href="/home/main"
+          </Link>
+          <Link
+            to="/home/main"
             className="px-4 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl border border-cyan-300/50 hover:from-cyan-400 hover:to-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40 group font-semibold text-center"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Try Now
-          </a>
+          </Link>
         </nav>
       </div>
-
     </header>
   );
 }
